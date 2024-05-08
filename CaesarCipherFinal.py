@@ -1,6 +1,7 @@
 #Anoushka Saha
 #Caesar Cipher Final
 #May 8th, 2024
+#Day 8 Final Project
 
 #Defining the function that will do both encryption and decryption
 def caesar(choice, text, num):
@@ -34,7 +35,7 @@ while True:
     print("The new message is: " + caesar(direction, message, shift))
 
     #Check if user wants to go again
-    go_again = input(print("Do you want to go again? (yes/no):\n"))
+    go_again = input("Do you want to go again? (yes/no):\n")
 
     #Breaking loop if user wants to exit program
     if go_again.lower() != "yes":
