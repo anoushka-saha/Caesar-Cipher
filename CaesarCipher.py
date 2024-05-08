@@ -25,4 +25,31 @@ def encrypt(message, num):
             cipher_text += message[i]
     return cipher_text
 
-print("The encrypted word is " + encrypt(text, shift))
+
+def decrypt(message, num):
+    decipher_text = ""
+    for i in range(len(message)):
+        if message[i].isalpha():
+            # Calculate the new ASCII value after shifting by num
+            new_ascii = ord(message[i]) - num
+            # Handle wrapping around the alphabet for uppercase letters
+            if message[i].isupper():
+                if new_ascii > ord('Z'):
+                    new_ascii += 26
+            # Handle wrapping around the alphabet for lowercase letters
+            elif message[i].islower():
+                if new_ascii > ord('z'):
+                    new_ascii += 26
+            # Convert the new ASCII value back to a character
+            decipher_text += chr(new_ascii)
+        else:
+            # Append non-alphabetic characters as is
+            decipher_text += message[i]
+    return decipher_text
+
+if direction == "encode":
+    print("The encrypted word is " + encrypt(text, shift))
+elif direction == "decode":
+    print("The decoded word is " + decrypt(text,shift))
+else:
+    print("Invalid direction.")
